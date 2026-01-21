@@ -1,0 +1,413 @@
+/* Base Styles & Variables */
+:root {
+    /* Dynamic Palette */
+    --bg-dark: #0a0a0c;
+    --glass-bg: rgba(22, 22, 26, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.05);
+    --accent-blue: #7aa2f7;
+    --accent-purple: #bb9af7;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a9b1d6;
+
+    --font-main: 'Outfit', sans-serif;
+
+    --gap: 1.25rem;
+    --radius: 1.5rem;
+
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Abstract Background Glows */
+.background-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(60, 20, 100, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(187, 154, 247, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Cursor Glow */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(600px at 50% 50%, rgba(187, 154, 247, 0.25), rgba(72, 60, 180, 0.15) 40%, transparent 80%);
+    pointer-events: none;
+    transition: background 0.1s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glass Card Utility */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: var(--transition), transform 0.1s ease-out;
+    /* optimized for tilt */
+
+    /* Animation Defaults */
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Staggered Delays */
+.profile-header {
+    animation-delay: 0.1s;
+}
+
+.bento-grid>article:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+/* About */
+.bento-grid>article:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+/* Tech */
+.bento-grid>article:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Location */
+.bento-grid>article:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+/* Birthday */
+.bento-grid>article:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+/* Personal */
+.bento-grid>article:nth-child(6) {
+    animation-delay: 0.7s;
+}
+
+/* Fun Fact */
+.bento-grid>article:nth-child(7) {
+    animation-delay: 0.8s;
+}
+
+/* Contact */
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(40, 40, 50, 0.7);
+    /* Transform handled by JS for tilt, or simple lift if JS fails */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card.tilt-active {
+    /* When tilt is active, remove the transition for transform to prevent lag */
+    transition: var(--transition), transform 0s;
+}
+
+/* Header Section */
+.profile-header {
+    margin-bottom: 1rem;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.profile-image-container {
+    position: relative;
+}
+
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--glass-border);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.profile-pic.pop {
+    transform: scale(0.95);
+}
+
+.profile-pic:hover {
+    border-color: var(--accent-blue);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background-color: #4cd137;
+    border: 3px solid #16161a;
+    border-radius: 50%;
+}
+
+.profile-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff 0%, #a9b1d6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Social Buttons */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.btn-icon {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-icon:hover {
+    background: rgba(122, 162, 247, 0.15);
+    border-color: var(--accent-blue);
+    color: #fff;
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+}
+
+.span-2-col {
+    grid-column: span 2;
+}
+
+.span-full {
+    grid-column: 1 / -1;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    color: var(--text-secondary);
+}
+
+/* Info Grid (Inner) */
+.info-grid-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+
+.info-item p {
+    font-size: 0.95rem;
+}
+
+/* Code Block */
+code {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+/* Links Inline */
+.link-inline {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link-inline:hover {
+    color: var(--accent-purple);
+    text-decoration: underline;
+}
+
+/* PGP Block */
+.pgp-block {
+    margin-top: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.pgp-block small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+/* Footer */
+footer {
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.5rem;
+}
+
+.credits {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.credits-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Responsiveness */
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 769px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* In 2-column mode, span-2 cols need to just fill the row or behave normally */
+    .span-2-col {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .profile-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .span-2-col,
+    .span-full {
+        grid-column: span 1;
+    }
+}

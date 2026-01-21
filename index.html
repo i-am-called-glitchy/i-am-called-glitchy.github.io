@@ -1,306 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>glitchy - Developer Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #d3d3d3;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    header {
-      text-align: center;
-      padding: 4rem 0 3rem;
-      border-bottom: 2px solid #3a3a3a;
-      margin-bottom: 3rem;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid #4a4a4a;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .subtitle {
-      font-size: 1.3rem;
-      color: #888;
-      margin-bottom: 2rem;
-    }
-
-    .quick-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 0.8rem 1.5rem;
-      background: #3a3a3a;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      border: 1px solid #4a4a4a;
-    }
-
-    .btn:hover {
-      background: #4a4a4a;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .section {
-      background: rgba(44, 44, 44, 0.5);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      border: 1px solid #3a3a3a;
-    }
-
-    h2 {
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #4a4a4a;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .info-card {
-      background: #2c2c2c;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #3a3a3a;
-    }
-
-    .info-card h3 {
-      color: #fff;
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
-    }
-
-    .info-card p {
-      color: #b0b0b0;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #6b9bd1;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #8ab4e5;
-      text-decoration: underline;
-    }
-
-    code {
-      background: #1a1a1a;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      color: #e0e0e0;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .tech-tag {
-      background: #3a3a3a;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      border: 1px solid #4a4a4a;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      border-top: 2px solid #3a3a3a;
-      color: #888;
-    }
-
-    .credits {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #3a3a3a;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .credits-pic {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      border: 2px solid #4a4a4a;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .section {
-        padding: 1.5rem;
-      }
-
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .profile-pic {
-        width: 100px;
-        height: 100px;
-      }
-    }
-  </style>
   <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-  <meta name="description" content="Glitchy's developer portfolio - hobbyist developer, open-source enthusiast, and creator of utilities.">
+  <meta name="description"
+    content="Glitchy's developer portfolio - hobbyist developer, open-source enthusiast, and creator of utilities.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="header-content">
-        <img src="./assets/glitchkisser4k.png" alt="glitchy profile picture" class="profile-pic">
-        <h1>glitchy</h1>
-      </div>
-      <p class="subtitle">Hobbyist Developer & Open-Source Enthusiast</p>
-      <div class="quick-links">
-        <a href="https://utils.amcalledglitchy.dev" class="btn">Utilities</a>
-        <a href="https://git.amcalledglitchy.dev/glitchy" class="btn">Git Repository</a>
-        <a href="https://discord.gg/HQjJFmAy8y" class="btn" target="_blank" rel="noopener noreferrer">Discord Server</a>
-        <a href="https://pkey.amcalledglitchy.dev" class="btn">PGP Key</a>
+  <div class="background-glow"></div>
+
+  <main class="container">
+    <!-- Profile Header Section -->
+    <header class="profile-header glass-card">
+      <div class="profile-content">
+        <div class="profile-image-container">
+          <img src="./assets/glitchkisser4k.png" alt="glitchy" id="profile-pic" class="profile-pic">
+          <div class="status-indicator" title="Online (probably)"></div>
+        </div>
+        <div class="profile-text">
+          <h1>glitchy</h1>
+          <p class="subtitle">Hobbyist Developer & Open-Source Enthusiast</p>
+          <div class="social-links">
+            <a href="https://utils.amcalledglitchy.dev" class="btn-icon" title="Utilities">
+              Utilities
+            </a>
+            <a href="https://git.amcalledglitchy.dev/glitchy" class="btn-icon" title="Git Repo">
+              Git
+            </a>
+            <a href="https://discord.gg/HQjJFmAy8y" class="btn-icon" target="_blank" rel="noopener noreferrer"
+              title="Discord">
+              Discord
+            </a>
+            <a href="https://pkey.amcalledglitchy.dev" class="btn-icon" title="PGP Key">
+              PGP
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
-    <section class="section">
-      <h2>About Me</h2>
-      <p>
-        I'm glitchy, a hobbyist developer who creates utilities primarily for personal use. As an open-source enthusiast, I share what I can with the community. I host my code on my own Git instance and rarely use GitHub unless collaborating with other developers.
-      </p>
-      <p style="margin-top: 1rem;">
-        This page is hosted on GitHub Pages, and while I have various projects scattered across the web, my main focus is building practical tools and learning new technologies.
-      </p>
-    </section>
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      <!-- About Me (Large) -->
+      <article class="glass-card span-2-col">
+        <h2>About Me</h2>
+        <p>
+          I'm glitchy, a hobbyist developer who creates utilities primarily for personal use. As an open-source
+          enthusiast, I share what I can with the community. I host my code on my own Git instance and rarely use GitHub
+          unless collaborating with other developers.
+        </p>
+        <p style="margin-top: 1rem;">
+          This page is hosted on GitHub Pages, and while I have various projects scattered across the web, my main focus
+          is building practical tools and learning new technologies.
+        </p>
+      </article>
 
-    <section class="section">
-      <h2>Tech & Preferences</h2>
-      <div class="tech-stack">
-        <span class="tech-tag">Arch Linux</span>
-        <span class="tech-tag">Open Source</span>
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Self-Hosted</span>
-      </div>
-    </section>
+      <!-- Tech & Preferences -->
+      <article class="glass-card">
+        <h2>Tech & Preferences</h2>
+        <div class="tech-tags">
+          <span class="tag">Arch Linux</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">Python</span>
+          <span class="tag">Self-Hosted</span>
+        </div>
+      </article>
 
-    <section class="section">
-      <h2>Information</h2>
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>Location</h3>
-          <p>Ireland (UTC+0, screw daylight savings)</p>
+      <!-- Information Section -->
+      <article class="glass-card span-full">
+        <h2>Information</h2>
+        <div class="info-grid-inner">
+          <div class="info-item">
+            <h3>Location</h3>
+            <p>Ireland (UTC+0, screw daylight savings)</p>
+          </div>
+          <div class="info-item">
+            <h3>Birthday</h3>
+            <p>April 8th (be a friend to know the birth year lol)</p>
+          </div>
+          <div class="info-item">
+            <h3>Personal</h3>
+            <p>ADHD and high-functioning autism (NYD, so take this with a grain of salt, but everyone's pretty sure)</p>
+          </div>
         </div>
-        <div class="info-card">
-          <h3>Birthday</h3>
-          <p>April 8th (be a friend to know the birth year lol)</p>
-        </div>
-        <div class="info-card">
-          <h3>Personal</h3>
-          <p>ADHD and high-functioning autism (NYD, so take this with a grain of salt, but everyone's pretty sure)</p>
-        </div>
-        <div class="info-card" style="grid-column: span 2;">
-          <h3>Fun Fact</h3>
-          <p>If you're looking for my wiki, you got baited - it rickrolls you. Try curling <code>https://wiki.amcalledglitchy.dev</code></p>
-        </div>
-      </div>
-    </section>
+      </article>
 
-    <section class="section">
-      <h2>Contact</h2>
-      <p>
-        Feel free to reach out via <a href="mailto:me@amcalledglitchy.dev">email (me@amcalledglitchy.dev)</a> or Discord (amcalledglitchy.dev). My old Discord account was falsely terminated, so if you had me added before, please re-add me.
-      </p>
-      <p style="margin-top: 1rem;">
-        <strong>PGP Fingerprint:</strong> <code>B657ECC809F63920FA45A52CA12B3D4140ACE628</code><br>
-        <small>(Updated 9 January, 2026 due to me messing up file backups when reinstalling my os.)</small>
-      </p>
-    </section>
+      <!-- Fun Fact -->
+      <article class="glass-card span-full">
+        <h2>Fun Fact</h2>
+        <p>If you're looking for my wiki, you got baited - it rickrolls you. Try curling:</p>
+        <code>https://wiki.amcalledglitchy.dev</code>
+      </article>
+
+      <!-- Contact & PGP -->
+      <article class="glass-card span-full">
+        <h2>Contact</h2>
+        <p style="margin-bottom: 1rem;">
+          Feel free to reach out via <a href="mailto:me@amcalledglitchy.dev" class="link-inline">email
+            (me@amcalledglitchy.dev)</a> or Discord (amcalledglitchy.dev). My old Discord account was falsely
+          terminated, so if you had me added before, please re-add me.
+        </p>
+        <div class="pgp-block">
+          <strong>PGP Fingerprint:</strong> <code>B657ECC809F63920FA45A52CA12B3D4140ACE628</code>
+          <small>(Updated 9 January, 2026 due to me messing up file backups when reinstalling my os.)</small>
+        </div>
+      </article>
+    </div>
 
     <footer>
-      <p>Anyways that's enough of me coredumping my soul - have a nice day!</p>
-      <p style="margin-top: 1rem; font-size: 0.9rem;">
-        Also cringe link feel free to ignore this but whatever use <a href="https://www.interserver.net/r/1054915">this link</a> if you need a cheap VPS
-      </p>
-      <div class="credits">
-        <span>Made By</span>
-        <img src="./assets/R4T.png" alt="R4T" class="credits-pic">
-        <span>R4T</span>
+      <div class="footer-content glass-card">
+        <p>Anyways that's enough of me coredumping my soul - have a nice day!</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">
+          Also cringe link feel free to ignore this but whatever use <a href="https://www.interserver.net/r/1054915"
+            class="link-inline">this link</a> if you need a cheap VPS
+        </p>
+        <div class="credits">
+          <span>Made By</span>
+          <img src="./assets/energykisser remake.svg" alt="Energyboy" class="credits-pic">
+          <span>Energyboy :3</span>
+        </div>
       </div>
     </footer>
-  </div>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
+
 </html>
